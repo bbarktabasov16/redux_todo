@@ -1,18 +1,8 @@
-import { DECREASE_COUNT, INCREASE_COUNT } from "../actions";
+import { combineReducers } from "redux";
+import { counterReducer } from "./counter.reducer";
+import { todoList_reducer } from "./todoList.reducer";
 
-const initialState = {
-	count: 0
-}
-
-export const counterReducer = (state = initialState, action) => {
-	switch (action.type) {
-		case INCREASE_COUNT:
-			return {count: state.count + 1}
-		case DECREASE_COUNT:
-			return {count: state.count - 1}
-
-	
-		default:
-			return state
-	}
-}
+export default combineReducers({
+	counter: counterReducer,
+	todoList: todoList_reducer
+})
